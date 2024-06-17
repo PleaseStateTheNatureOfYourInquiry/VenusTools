@@ -24,4 +24,4 @@ export PYTHONPATH="/SomeWhereOnYourMachine/VenusTools/VMCTools:$PYTHONPATH"
 The methods in the **VenusTools** classes use methods from [GeneralTools](https://github.com/PleaseStateTheNatureOfYourInquiry/GeneralTools),
 also developed by Maarten Roos-Serote.
 
-Please find the documentation on how to use **VenusTools** [here](https://venusresearchworkbook.readthedocs.io/en/latest/index.html).
+Please find the documentation on how to use **VenusTools** [here](https://venustools.readthedocs.io/en/latest/index.html).
