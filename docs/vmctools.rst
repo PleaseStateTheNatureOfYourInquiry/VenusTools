@@ -86,6 +86,3 @@ VMCTools
 
 .. automethod:: VMCTools.VMCTools.getColourForVEXMissionSection
 
-
-
-
