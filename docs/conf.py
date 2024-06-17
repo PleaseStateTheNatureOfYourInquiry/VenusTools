@@ -59,7 +59,7 @@ numtab = False
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     "stickysidebar": "true",
-    "description": "Some useful tools for working with Venus Express VMC and VeRa data"
+    "description": "VenusTools"
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

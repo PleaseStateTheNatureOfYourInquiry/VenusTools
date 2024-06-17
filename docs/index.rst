@@ -6,6 +6,8 @@
     | `Research Gate <https://www.researchgate.net/profile/Maarten-Roos-Serote>`_
 
 
+VenusTools
+==========
 
 .. toctree::
    :hidden:
