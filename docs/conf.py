@@ -14,6 +14,8 @@ import os
 import sys
 sys.path.append ( os.path.abspath ('.') )
 sys.path.append ( os.path.abspath ('..') )
+sys.path.append ( os.path.abspath ('../VeRaTools') )
+sys.path.append ( os.path.abspath ('../VMCTools') )
 
 autodoc_mock_imports = ['HandyTools', 'DataTools', 'planetaryimage']
 
