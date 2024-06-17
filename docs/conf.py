@@ -22,7 +22,7 @@ autodoc_mock_imports = ['HandyTools', 'DataTools', 'planetaryimage']
 
 # -- Project information -----------------------------------------------------
 
-project = 'Some useful tools for working with Venus Express VMC and VeRa data'
+project = 'VenusTools'
 author = 'Maarten Roos-Serote'
 
 # The full version, including alpha/beta/rc tags
