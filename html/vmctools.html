@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VMCTools &mdash; VenusTools 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="VeRaTools" href="veratools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VenusTools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="veratools.html">VeRaTools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VMCTools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#VMCTools.VMCTools.readVMCImageAndGeoCube"><code class="docutils literal notranslate"><span class="pre">VMCTools.readVMCImageAndGeoCube()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#VMCTools.VMCTools.VMCPhotometry"><code class="docutils literal notranslate"><span class="pre">VMCTools.VMCPhotometry()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#VMCTools.VMCTools.getWindAdvectedBox"><code class="docutils literal notranslate"><span class="pre">VMCTools.getWindAdvectedBox()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#VMCTools.VMCTools.getColourForVEXMissionSection"><code class="docutils literal notranslate"><span class="pre">VMCTools.getColourForVEXMissionSection()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VenusTools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">VMCTools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/vmctools.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vmctools">
+<span id="id1"></span><h1>VMCTools<a class="headerlink" href="#vmctools" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="#VMCTools.VMCTools.readVMCImageAndGeoCube" title="VMCTools.VMCTools.readVMCImageAndGeoCube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readVMCImageAndGeoCube()</span></code></a></div>
+<div class="line"><a class="reference internal" href="#VMCTools.VMCTools.VMCPhotometry" title="VMCTools.VMCTools.VMCPhotometry"><code class="xref py py-meth docutils literal notranslate"><span class="pre">VMCPhotometry()</span></code></a></div>
+<div class="line"><a class="reference internal" href="#VMCTools.VMCTools.getWindAdvectedBox" title="VMCTools.VMCTools.getWindAdvectedBox"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getWindAdvectedBox()</span></code></a></div>
+<div class="line"><a class="reference internal" href="#VMCTools.VMCTools.getColourForVEXMissionSection" title="VMCTools.VMCTools.getColourForVEXMissionSection"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getColourForVEXMissionSection()</span></code></a></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="VMCTools.VMCTools.readVMCImageAndGeoCube">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">VMCTools.</span></span><span class="sig-name descname"><span class="pre">readVMCImageAndGeoCube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">VMCImageFileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#VMCTools.VMCTools.readVMCImageAndGeoCube" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>VMCImageFileName</strong> (<em>str</em>) – file name (and path) of the VMC image file. It is assumed the .IMG and .GEO have the same file name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>VMC image as PDS3Image and flattened NumPy array, and the VMC geocube as PDS3Image as list of five flattened NumPy arrays.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>planetaryimage.pds3image.PDS3Image, NumPy array, planetaryimage.pds3image.PDS3Image, list [NumPy array x 5]</p>
+</dd>
+</dl>
+<p><strong>Description:</strong>
+Read the content of a VMC image (.IMG) and corresponding geo-cube (.GEO).</p>
+<p>The VMCImage is a PDS3Image object (<a class="reference external" href="https://planetaryimage.readthedocs.io/en/latest/index.html">planetaryimage module</a>), with several attributes.
+The <em>image</em> attribute contains the uncalibrated image. For more easy manipulation, 
+the image is also returned as flattened NumPy array.</p>
+<p>The VMCGeoCube is a PDS3Image object, with several attributes. The <em>data</em> attribute contains the planes:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">VMCGeoCube.data [0] Incidence Angle</div>
+<div class="line">VMCGeoCube.data [1] Emission Angle</div>
+<div class="line">VMCGeoCube.data [2] Phase Angle</div>
+<div class="line">VMCGeoCube.data [3] Latitude</div>
+<div class="line">VMCGeoCube.data [4] Longitude</div>
+</div>
+</div></blockquote>
+<p>For more easy manipulation, each plane is returned as a flattened NumPy array, and the five arrays are packed in the  VMCGeoArraysFlattened  list.</p>
+<p>The longitude values stored in the .GEO files go from -180˚ to +180˚. In this function the longitude values are transformed so that they run between 0˚ to +360˚.
+In this plot it is shown the transformation is done correctly.</p>
+<figure class="align-default">
+<img alt="_images/longitudeTransformationCheck.png" src="_images/longitudeTransformationCheck.png" />
+</figure>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="VMCTools.VMCTools.VMCPhotometry">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">VMCTools.</span></span><span class="sig-name descname"><span class="pre">VMCPhotometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">VMCImage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VMCImageFlattened</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VMCGeoCube</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VMCGeoArraysFlattened</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incidenceAngeLimit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">89</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">applyLambertLaw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#VMCTools.VMCTools.VMCPhotometry" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>VMCImage</strong> (<em>planetaryimage.pds3image.PDS3Image</em>) – <p>PDS3Image object (<a class="reference external" href="https://planetaryimage.readthedocs.io/en/latest/index.html">planetaryimage module</a>) from reading a VMC .IMG file.</p>
+</p></li>
+<li><p><strong>VMCImageFlattened</strong> (<em>1D NumPy array</em>) – flattened 1D array of the calibrated radiance factors of the entire VMC image.</p></li>
+<li><p><strong>VMCGeoCube</strong> (<em>planetaryimage.pds3image.PDS3Image</em>) – <p>PDS3Image object (<a class="reference external" href="https://planetaryimage.readthedocs.io/en/latest/index.html">planetaryimage module</a>) from reading a VMC .GEO file.</p>
+</p></li>
+<li><p><strong>VMCGeoArraysFlattened</strong> (list [NumPy array x 5], see description of <a class="reference internal" href="#VMCTools.VMCTools.readVMCImageAndGeoCube" title="VMCTools.VMCTools.readVMCImageAndGeoCube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readVMCImageAndGeoCube()</span></code></a>) – flattened 1D array of the calibrated radiance factors of the entire VMC image.</p></li>
+<li><p><strong>incidenceAngeLimit</strong> (<em>float</em>) – valid pixels must have incidence angle smaller or equal to  incidenceAngeLimit .</p></li>
+<li><p><strong>applyLambertLaw</strong> (<em>bool</em>) – apply Lambert limbdarkening law only, default = True (at this time, no other law has been programmed yet).</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) – print information on run, default = False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>calibrated VMC image, flattened calibrated VMC image, average incidence angle, standard deviation incidence angle, average emission angle, standard emission incidence angle, average phase angle, standard deviation phase angle, radiance scaling factor</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D NumPy array (512x512), 1d NumPy array, float, float, float, float, float, float,</p>
+</dd>
+</dl>
+<p><strong>Description:</strong>
+This method is used to calibrate a VMC image.
+The calibrated radiance factor <span class="math notranslate nohighlight">\(RF_{x,y}\)</span> for a valid (= on Venus disk) pixel <span class="math notranslate nohighlight">\((x,y)\)</span> in a VMC image is:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(RF_{x,y} = \pi \beta R_{observed - x,y} \frac {d_{Venus}}{S_{Sun}}\)</span></p>
+</div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> is the calibration correction factor (see <a class="reference external" href="https://doi.org/10.1016/j.pss.2014.11.012">Shalygina  et al. 2015</a>, their Table 1), <span class="math notranslate nohighlight">\(R_{observed - x,y}\)</span> is the value at the pixel in ADU times the radiance scaling factor read from the VMC image header (<code class="code docutils literal notranslate"><span class="pre">VMCImage.label</span> <span class="pre">['RADIANCE_SCALING_FACTOR'].value</span></code>, when read with <a class="reference external" href="https://planetaryimage.readthedocs.io/en/latest/index.html">planetaryimage module</a> in Python) in <span class="math notranslate nohighlight">\(W/m^2/\mu m/ster/ADU\)</span>, <span class="math notranslate nohighlight">\(d_{Venus}\)</span> is the distance of Venus to the Sun in AU and <span class="math notranslate nohighlight">\(S_{Sun}\)</span> the solar flux in <span class="math notranslate nohighlight">\(W/m^2/\mu m\)</span> at 1AU (see <a class="reference external" href="http://dx.doi.org/10.1016/j.icarus.2015.02.015">Lee et al. 2015</a> their Equation 2).</p>
+<p>The <span class="math notranslate nohighlight">\(\beta\)</span> factor is 2.34 for orbits before 2639 and 1 for later orbits.</p>
+<p>For <span class="math notranslate nohighlight">\(S_{Sun}\)</span> (from <a class="reference external" href="http://dx.doi.org/10.1016/j.icarus.2015.02.015">Lee et al. 2015</a> their Equation 1):</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(S_{Sun} = \frac {\int S_{irradiance}(\lambda) T(\lambda) d\lambda}{\int T (\lambda) d\lambda}\)</span></p>
+</div></blockquote>
+<p>The <span class="math notranslate nohighlight">\(S_{irradiance}\)</span> is determined using the <a class="reference external" href="https://www.nrel.gov/grid/solar-resource/spectra.html">Solar Spectra website</a> and the transmission function <span class="math notranslate nohighlight">\(T (\lamda)\)</span> is taken from a parametrisation of the UV part of the transmission function of the VMC camera as published by <a class="reference external" href="https://doi.org/10.1016/j.pss.2007.01.004">Markiewicz et al. 2007</a> their Figure 3.</p>
+<p>This results in a value of <span class="math notranslate nohighlight">\(S_{Sun} = 1081 W/m^2/\mu m\)</span>.</p>
+<p>The value of <span class="math notranslate nohighlight">\(d_{Venus} = 0.723AU\)</span> to within 1% in <span class="math notranslate nohighlight">\(d_{Venus}^2\)</span> over the orbit of Venus.</p>
+<p>Finally, a Lambert limb-darkening law is applied.</p>
+<p>The calibration is only done for pixels that fall on the Venus disk, which have valid longitudes attached to them and an incidence angle of less than or equal to the limit set by the user (default = 89˚).</p>
+<p>The first four input variables come from reading a VMC image with the <a class="reference internal" href="#VMCTools.VMCTools.readVMCImageAndGeoCube" title="VMCTools.VMCTools.readVMCImageAndGeoCube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readVMCImageAndGeoCube()</span></code></a> method of this class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="VMCTools.VMCTools.getWindAdvectedBox">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">VMCTools.</span></span><span class="sig-name descname"><span class="pre">getWindAdvectedBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitudeVeRaSounding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitudeVeRaSounding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeDifferenceHours</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oneSigmaZonalWind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oneSigmaMeridionalWind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#VMCTools.VMCTools.getWindAdvectedBox" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latitudeVeRaSounding</strong> (<em>float</em>) – latitude (˚) of the VeRa sounding location.</p></li>
+<li><p><strong>longitudeVeRaSounding</strong> (<em>float</em>) – longitude (˚) of the VeRa sounding location.</p></li>
+<li><p><strong>timeDifferenceHours</strong> (<em>float</em>) – difference in hours between the VeRa sounding and the VMC image acquisition.</p></li>
+<li><p><strong>oneSigmaZonalWind</strong> (<em>float</em>) – the standard deviation for the zonal wind. Default is 20m/s from Khatunstev et al. (2013) Figure 10a.</p></li>
+<li><p><strong>oneSigmaMeridionalWind</strong> (<em>float</em>) – the standard deviation for the meridional wind. Default is 12m/s from Khatunstev et al. (2013) Figure 10b.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>latitudeCentre, latitudeLimits, longitudeCentre, longitudeLimits.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, list [float, float], float, list [ [float, float], [float, float] ]</p>
+</dd>
+</dl>
+<p><strong>Description</strong>:   
+Given the latitude and longitude of the VeRa sounding, as well as the time difference between the VeRa sounding and the VMC image, determine the
+latitude-longitude box where the atmosphere of the VeRa sounding was positioned at the time of the VMC image recording.</p>
+<p>The parametrisation is based on <a class="reference external" href="http://dx.doi.org/10.1016/j.icarus.2013.05.018s">Khatuntsev et al. (2013)</a> figures 10a (zonal) and 10b (meridional).
+The uncertainties (standard deviation) <cite>oneSigmaZonalWind</cite> and <cite>oneSigmaMeridionalWind</cite> are estimated based on the grey areas in those figures.</p>
+<div class="admonition-parametrisation-of-the-wind-profiles admonition">
+<p class="admonition-title">Parametrisation of the wind profiles.</p>
+<p>Khatuntsev et al. (2013) report on the zonal and meridional wind profiles measured from VEX orbits up to 2299 (10-year period) and
+present the result in their figures 10(a) and (b): <em>Mean zonal (a) and meridional (b) profiles of the wind speed derived over the period of 10 venusian years by manual cloud tracking. Error bars correspond to 99.9999% 5σ-x confidence interval based on the standard deviation of the weighted mean. Standard deviations are presented by shadowed areas.</em></p>
+<p>They present the formulae (their Equations (1) and (2)) with which the winds have been calculated by comparing two images:</p>
+<div class="math notranslate nohighlight">
+\[U = \frac {(\lambda_2 - \lambda_1) (R+h) cos (\theta)}{\Delta t}\]</div>
+<div class="math notranslate nohighlight">
+\[V = \frac {(\theta_2 - \theta_1) (R + h)}{\Delta t}\]</div>
+<p>where the indices <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span> refer to the first and second image, <span class="math notranslate nohighlight">\(\lambda\)</span> is the longitude and <span class="math notranslate nohighlight">\(\theta\)</span> the latitude. Since <span class="math notranslate nohighlight">\(U\)</span> is negative (see table below), it means the wind blows the clouds in the direction of smaller Venus longitudes.</p>
+<p>From my (physical) notebook entry on 19-03-2015: the average zonal wind is determined from figure 10a in Khatuntsev et al. (2013)
+and can be parametrised as (<span class="math notranslate nohighlight">\(U\)</span> in units of m/s):</p>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text"><strong>Parametrised average zonal wind</strong></span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Latitude range (˚)</p></th>
+<th class="head"><p>wind parametrisation (m/s)</p></th>
+<th class="head"><p>notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(-75˚, -50˚]</p></td>
+<td><p><span class="math notranslate nohighlight">\(U({\theta})\)</span> =  -94   + (<span class="math notranslate nohighlight">\({\theta}\)</span> + 50) * (65.6/-25)</p></td>
+<td><p>also use for latitudes down to -90˚.</p></td>
+</tr>
+<tr class="row-odd"><td><p>(-50˚, -40˚]</p></td>
+<td><p><span class="math notranslate nohighlight">\(U({\theta})\)</span> = -101.5 + (<span class="math notranslate nohighlight">\({\theta}\)</span> + 40) * (7.5/-10)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>(-40˚, -15˚]</p></td>
+<td><p><span class="math notranslate nohighlight">\(U({\theta})\)</span> =  -93 + (<span class="math notranslate nohighlight">\({\theta}\)</span> + 15) * (-8.5/-35)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>(-15˚, 0˚]</p></td>
+<td><p><span class="math notranslate nohighlight">\(v{\theta})\)</span> = -93</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="_images/Khatuntsev_2013_Figure10a_ZonalWind.jpg"><img alt="_images/Khatuntsev_2013_Figure10a_ZonalWind.jpg" src="_images/Khatuntsev_2013_Figure10a_ZonalWind.jpg" style="width: 160.60000000000002px; height: 123.80000000000001px;" /></a>
+<figcaption>
+<p><span class="caption-text">Khatuntsev et al. (2013) Figure 10a. Zonal wind parametrisation.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>From my (physical) notebook entry on 24-04-2015: the average meridional wind is determined from figure 10b in Khatuntsev et al. (2013)
+and can be parametrised as (<span class="math notranslate nohighlight">\(V\)</span> in units of m/s):</p>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text"><strong>Parametrised average meridional wind</strong></span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Latitude range (˚)</p></th>
+<th class="head"><p>wind parametrisation (m/s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(-90˚, -75˚]</p></td>
+<td><p><span class="math notranslate nohighlight">\(V({\theta})\)</span>) =  0</p></td>
+</tr>
+<tr class="row-odd"><td><p>(-75˚, -50˚]</p></td>
+<td><p><span class="math notranslate nohighlight">\(V({\theta})\)</span>) = -9.58 + ( <span class="math notranslate nohighlight">\({\theta}\)</span> + 50 ) * (9.38/-25)</p></td>
+</tr>
+<tr class="row-even"><td><p>(-50˚, -20˚]</p></td>
+<td><p><span class="math notranslate nohighlight">\(V({\theta})\)</span>) = -6.5  + ( <span class="math notranslate nohighlight">\({\theta}\)</span> + 20 ) * (-3.08/-30)</p></td>
+</tr>
+<tr class="row-odd"><td><p>(-20˚, 0˚]</p></td>
+<td><p><span class="math notranslate nohighlight">\(V({\theta})\)</span>) = -3.26 + ( <span class="math notranslate nohighlight">\({\theta}\)</span> + 0 )   * (-3.24/-20)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="_images/Khatuntsev_2013_Figure10b_MeridionalWind.jpg"><img alt="_images/Khatuntsev_2013_Figure10b_MeridionalWind.jpg" src="_images/Khatuntsev_2013_Figure10b_MeridionalWind.jpg" style="width: 175.70000000000002px; height: 118.9px;" /></a>
+<figcaption>
+<p><span class="caption-text">Khatuntsev et al. (2013) Figure 10b. Meridional wind parametrisation.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="VMCTools.VMCTools.getColourForVEXMissionSection">
+<span class="sig-prename descclassname"><span class="pre">VMCTools.</span></span><span class="sig-name descname"><span class="pre">getColourForVEXMissionSection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#VMCTools.VMCTools.getColourForVEXMissionSection" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>orbitOrImageID</strong> (<em>str</em><em> or </em><em>int</em>) – ID of a VMC image, for example ‘V2811_0080_UV2’</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>colour string for use in matplotlib.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p><strong>Description:</strong>
+Define the colours for each Venus Express mission section for making scatter plots.
+The information about the orbit IDs per mission section comes from the file 
+<code class="file docutils literal notranslate"><span class="pre">/Users/maarten/Science/Venus/Temperature-UV_Analysis_2024/Data/VEX/VEX-SCIOPS-LI-053_1_1_VEX_Orbit_Date_DOY_Listing_2014Sep15.numbers</span></code>,
+see also the link to <a class="reference external" href="https://www.cosmos.esa.int/web/psa/venus-express">Venus Express at the ESA PSA</a></p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="veratools.html" class="btn btn-neutral float-left" title="VeRaTools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .
+      <span class="lastupdated">Last updated on Jun 18, 2024, 10:18:33 AM.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

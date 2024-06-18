@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VeRaTools &mdash; VenusTools 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="VMCTools" href="vmctools.html" />
+    <link rel="prev" title="VenusTools" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VenusTools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VeRaTools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#VeRaTools.VeRaTools.readVeRaTAB"><code class="docutils literal notranslate"><span class="pre">VeRaTools.readVeRaTAB()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#VeRaTools.VeRaTools.getFilteredVeRaProfile"><code class="docutils literal notranslate"><span class="pre">VeRaTools.getFilteredVeRaProfile()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#VeRaTools.VeRaTools.createVeRaProfilesTable"><code class="docutils literal notranslate"><span class="pre">VeRaTools.createVeRaProfilesTable()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#VeRaTools.VeRaTools.readValuesFromVeRaTable"><code class="docutils literal notranslate"><span class="pre">VeRaTools.readValuesFromVeRaTable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vmctools.html">VMCTools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VenusTools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">VeRaTools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/veratools.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="veratools">
+<span id="id1"></span><h1>VeRaTools<a class="headerlink" href="#veratools" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="#VeRaTools.VeRaTools.readVeRaTAB" title="VeRaTools.VeRaTools.readVeRaTAB"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readVeRaTAB()</span></code></a></div>
+<div class="line"><a class="reference internal" href="#VeRaTools.VeRaTools.getFilteredVeRaProfile" title="VeRaTools.VeRaTools.getFilteredVeRaProfile"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getFilteredVeRaProfile()</span></code></a></div>
+<div class="line"><a class="reference internal" href="#VeRaTools.VeRaTools.createVeRaProfilesTable" title="VeRaTools.VeRaTools.createVeRaProfilesTable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">createVeRaProfilesTable()</span></code></a></div>
+<div class="line"><a class="reference internal" href="#VeRaTools.VeRaTools.readValuesFromVeRaTable" title="VeRaTools.VeRaTools.readValuesFromVeRaTable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readValuesFromVeRaTable()</span></code></a></div>
+<div class="line"><br /></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="VeRaTools.VeRaTools.readVeRaTAB">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">VeRaTools.</span></span><span class="sig-name descname"><span class="pre">readVeRaTAB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">VeRaTABFileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#VeRaTools.VeRaTools.readVeRaTAB" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>VeRaTABFileName</strong> (<em>str</em>) – File name (and path) of the VeRa TAB file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Values of 7 variables as a function of sounded level, numberOfLevels</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>NumPy array (7, numberOfLevels), int</p>
+</dd>
+</dl>
+<p><strong>Description:</strong>
+Read the content of a VeRa .TAB file and return as a numpy array, where each row represents the values of a variable as a function of sounding level:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">VeRaProfileOriginal [0] radius (km)</div>
+<div class="line">VeRaProfileOriginal [1] Temperature (K)</div>
+<div class="line">VeRaProfileOriginal [2] 1-sigma Temperature uncertainty (K)</div>
+<div class="line">VeRaProfileOriginal [3] pressure (bar)</div>
+<div class="line">VeRaProfileOriginal [4] 1-sigma pressure uncertainty (bar)</div>
+<div class="line">VeRaProfileOriginal [5] latitude (˚)</div>
+<div class="line">VeRaProfileOriginal [6] longitude (˚)</div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="VeRaTools.VeRaTools.getFilteredVeRaProfile">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">VeRaTools.</span></span><span class="sig-name descname"><span class="pre">getFilteredVeRaProfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">VeRaTABFileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startAltitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6098.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endAltitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6154.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filteredAltitudeLevelsStep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#VeRaTools.VeRaTools.getFilteredVeRaProfile" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>VeRaTABFileName</strong> (<em>str</em>) – File name (and path) of the VeRa TAB file.</p></li>
+<li><p><strong>startAltitude</strong> (<em>float</em>) – Start altitude (km) of the filtered profile, default = 6098km.</p></li>
+<li><p><strong>endAltitude</strong> (<em>float</em>) – End altitude (km) of the filtered profile, default = 6154km.</p></li>
+<li><p><strong>filteredAltitudeLevelsStep</strong> (<em>float</em>) – the step-size (km) of the filtered profile, default = 1km.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Description:</strong>
+Calculate an average filtered VeRa profile at two altitudes between radius the  startAltitude  and  endAltitude with step  filteredAltitudeLevelsStep. 
+The default values result in 56 levels between 6089km and 6154km.</p>
+<p>Take a window with a total width of  filteredAltitudeLevelsStep  around each altitude level and average the temperatures and latitudes.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">VeRaProfileFiltered [0] radius (km)</div>
+<div class="line">VeRaProfileFiltered [1] Temperature (K)</div>
+<div class="line">VeRaProfileFiltered [2] 1-sigma Temperature uncertainty (K)</div>
+<div class="line">VeRaProfileFiltered [3] pressure (bar)</div>
+<div class="line">VeRaProfileFiltered [4] 1-sigma pressure uncertainty (bar)</div>
+<div class="line">VeRaProfileFiltered [5] latitude (˚)</div>
+<div class="line">VeRaProfileFiltered [6] longitude (˚)</div>
+<div class="line">VeRaProfileFiltered [7] dT/dz (K/km)</div>
+<div class="line">VeRaProfileFiltered [8] 1-sigma dT/dz (K/km)</div>
+<div class="line">VeRaProfileFiltered [9] number of original levels used to calculate the average / filtered values</div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="VeRaTools.VeRaTools.createVeRaProfilesTable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">VeRaTools.</span></span><span class="sig-name descname"><span class="pre">createVeRaProfilesTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">VeRaTableFileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topDirectory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TXT'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#VeRaTools.VeRaTools.createVeRaProfilesTable" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>VeRaTableFileName</strong> (<em>str</em>) – file name for the table to be written.</p></li>
+<li><p><strong>topDirectory</strong> (<em>str</em>) – path name of the top directory in which the .TXT files are stored.</p></li>
+<li><p><strong>extension</strong> (<em>str</em>) – extension of the .TXT files, default = ‘TXT’</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Description</strong>: Create the tables with the orbit IDs and information at the one-bar pressure level of the corresponding VeRa 
+temperature profiles. The information is the Day Of Year, time of observation, Local Solar Time, Latitude, Longitude, and Solar 
+Zenith Angle at the one-bar pressure level.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="VeRaTools.VeRaTools.readValuesFromVeRaTable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">VeRaTools.</span></span><span class="sig-name descname"><span class="pre">readValuesFromVeRaTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">VeRaTableFileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#VeRaTools.VeRaTools.readValuesFromVeRaTable" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>VeRaTableFileName</strong> (<em>str</em>) – file name for the table to be read.</p>
+</dd>
+</dl>
+<p><strong>Description</strong>: Read a table as created by the  createVeRaProfilesTable  of this static class and return the values of each column as lists.
+Time of day is converted to hours (= hour + minutes / 60 + seconds / 3600).</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="VenusTools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vmctools.html" class="btn btn-neutral float-right" title="VMCTools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .
+      <span class="lastupdated">Last updated on Jun 18, 2024, 10:18:33 AM.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

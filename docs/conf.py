@@ -57,10 +57,10 @@ numtab = False
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-html_theme_options = {
-    "stickysidebar": "true",
-    "description": "VenusTools"
-}
+# html_theme_options = {
+#     "stickysidebar": "true",
+#     "description": "VenusTools"
+# }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
