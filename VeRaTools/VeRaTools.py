@@ -100,6 +100,9 @@ class VeRaTools:
 
         :param filteredAltitudeLevelsStep: the step-size (km) of the filtered profile, default = 1km.
         :type filteredAltitudeLevelsStep: float
+        
+        :return: VeRaProfileFiltered, numberOfFilteredLevels, VeRaProfileOriginal, numberOfOriginalLevels
+        :rtype: list (10 lists), int, list (10 lists), int
 
 
         **Description:**
