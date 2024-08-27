@@ -102,7 +102,7 @@ class VeRaTools:
         :type filteredAltitudeLevelsStep: float
         
         :return: VeRaProfileFiltered, numberOfFilteredLevels, VeRaProfileOriginal, numberOfOriginalLevels
-        :rtype: list (10 lists), int, list (10 lists), int
+        :rtype: list (10 lists), int, list (7 lists), int
 
 
         **Description:**
