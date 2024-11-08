@@ -107,7 +107,7 @@ class VeRaTools:
 
         **Description:**
         Calculate an average filtered VeRa profile at two altitudes between radius the  startAltitude  and  endAltitude with step  filteredAltitudeLevelsStep. 
-        The default values result in 56 levels between 6089km and 6154km.
+        The default values result in 56 levels between 6098km and 6154km.
 
         Take a window with a total width of  filteredAltitudeLevelsStep  around each altitude level and average the temperatures and latitudes.
 
@@ -245,20 +245,21 @@ class VeRaTools:
         # Go through the list and create the table.
         if listOfVeRaProfileTXTList:
         
-    
             fileOpen = open (VeRaTableFileName, 'w')
             
-            print (' ', file = fileOpen)
-            print (' File: {}'.format ( VeRaTableFileName.replace ('../', '') ), file = fileOpen)
-            print (' Created at {}'.format ( HandyTools.getDateAndTimeString () ), file = fileOpen)
-            print (' ', file = fileOpen)
-            print ('  Include {} files from: {}'.format (extension, topDirectory), file = fileOpen)
-            print (' ', file = fileOpen)
-            print ('  Values are for 1-bar level, surface radius of Venus is {:6.1f}km'.format (venusSurfaceRadius), file = fileOpen)
-            print (' ', file = fileOpen)
-            print (' Orbit          DOY               UTC            Altitude   Temperature   Local Solar Time  Latitude   Longitude    Solar Zenith Angle', file = fileOpen)
-            print ('             yyyy-mm-dd        hh:mm:ss            (km)         (K)             (h)           (˚)         (˚)           (˚)', file = fileOpen)
-            print ('C_END', file = fileOpen)
+            headerLines = [
+            '',
+            '  Include {} files from: {}'.format (extension, topDirectory),
+            '',
+            '  Values are for 1-bar level, surface radius of Venus is {:6.1f}km'.format (venusSurfaceRadius),
+            '',
+            ' Orbit          DOY               UTC            Altitude   Temperature   Local Solar Time  Latitude   Longitude    Solar Zenith Angle',
+            '             yyyy-mm-dd        hh:mm:ss            (km)         (K)             (h)           (˚)         (˚)           (˚)'            
+            ]
+            
+            headerString = HandyTools.getTableHeader (VeRaTableFileName, creationScript = 'VeRaTools.createVeRaProfilesTable', headerLines = headerLines)
+            
+            print (headerString, file = fileOpen)
             
                 
             for listOfVeRaProfileTXT in sorted (listOfVeRaProfileTXTList):

@@ -83,7 +83,14 @@ class VMCTools:
 
     # Read the content of a VeRa .TAB file and return a numpy array.
     @staticmethod
-    def VMCPhotometry (VMCImage, VMCImageFlattened, VMCGeoCube, VMCGeoArraysFlattened, incidenceAngeLimit = 89, applyLambertLaw = True, silent = False):
+    def VMCPhotometry ( VMCImage, 
+                        VMCImageFlattened,
+                        VMCGeoCube,
+                        VMCGeoArraysFlattened,
+                        incidenceAngleLimit = 89,
+                        emissionAngleLimit = 89,
+                        applyLambertLaw = True,
+                        silent = False ):
         '''
         :param VMCImage: PDS3Image object (`planetaryimage module <https://planetaryimage.readthedocs.io/en/latest/index.html>`_) from reading a VMC .IMG file.
         :type VMCImage: planetaryimage.pds3image.PDS3Image
@@ -97,8 +104,11 @@ class VMCTools:
         :param VMCGeoArraysFlattened: flattened 1D array of the calibrated radiance factors of the entire VMC image.
         :type VMCGeoArraysFlattened: list [NumPy array x 5], see description of :py:meth:`~.readVMCImageAndGeoCube`
 
-        :param incidenceAngeLimit: valid pixels must have incidence angle smaller or equal to  incidenceAngeLimit .
-        :type incidenceAngeLimit: float
+        :param emissionAngleLimit: valid pixels must have emission angle smaller or equal to  incidenceAngleLimit .
+        :type emissionAngleLimit: float
+
+        :param incidenceAngleLimit: valid pixels must have incidence angle smaller or equal to  incidenceAngleLimit .
+        :type incidenceAngleLimit: float
 
         :param applyLambertLaw: apply Lambert limbdarkening law only, default = True (at this time, no other law has been programmed yet).
         :type applyLambertLaw: bool
@@ -111,7 +121,8 @@ class VMCTools:
         
         **Description:**
         This method is used to calibrate a VMC image.
-        The calibrated radiance factor :math:`RF_{x,y}` for a valid (= on Venus disk) pixel :math:`(x,y)` in a VMC image is:
+        The calibrated radiance factor :math:`RF_{x,y}` for a valid (= on Venus disk with incidence angle < :code:`incidenceAngleLimit` and emission 
+        angle < :code:`emissionAngleLimit`) pixel :math:`(x,y)` in a VMC image is:
                 
             :math:`RF_{x,y} = \\pi \\beta R_{observed - x,y} \\frac {d_{Venus}}{S_{Sun}}`
         
@@ -143,7 +154,15 @@ class VMCTools:
         VMCGeoArraysFlattened [4][iLongitude] += 360
         
         # Collect the indices of all the points on the illuminated part of the Venus disk.
-        iOnDiskValid = np.where ( np.logical_and ( abs ( VMCGeoArraysFlattened [4] ) <= 360, abs ( VMCGeoArraysFlattened [0] ) <= incidenceAngeLimit ) )[0]
+        iOnDiskValid1 = np.where ( np.logical_and ( abs ( VMCGeoArraysFlattened [4] ) <= 360, 
+                                                    abs ( VMCGeoArraysFlattened [0] ) <= incidenceAngleLimit ) ) [0]
+
+        
+        iOnDiskValid2 = np.where ( VMCGeoArraysFlattened [1][iOnDiskValid1] <= emissionAngleLimit ) [0]
+                                                    
+        # Valid points with incidence and emission angle limits.
+        iOnDiskValid = iOnDiskValid1 [iOnDiskValid2]
+        
    
         # Extract the Radiance Scaling Factor in the right units of W/m2/ster/micron, instead of the reported units W/m3/ster.   
         radianceScalingFactor = VMCImage.label ['RADIANCE_SCALING_FACTOR'].value / 1000000.        
@@ -165,7 +184,7 @@ class VMCTools:
         
             print ()
             print ( ' Calibrating image {}'.format (VMCImage.filename) )
-            print ( '  - valid point when longitude 0˚ - 360˚ and incidence angle < {}˚;'.format (incidenceAngeLimit) )
+            print ( '  - valid point when longitude 0˚ - 360, incidence angle < {}˚ and emission angle < {}˚;'.format (incidenceAngleLimit, emissionAngleLimit) )
             print ( '  - number of valid points = {:6d};'.format ( len (iOnDiskValid) ) )
             print ( '  - radiance scaling factor = {} W/m2/micron/ster;'.format (radianceScalingFactor) )
 
